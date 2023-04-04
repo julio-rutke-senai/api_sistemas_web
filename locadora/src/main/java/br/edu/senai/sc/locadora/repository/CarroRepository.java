@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface CarroRepository extends JpaRepository<Carro, Long> {
 
+    List<Carro> findCarrosByModeloContaining(String modelo);
 }

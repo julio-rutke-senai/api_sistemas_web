@@ -2,6 +2,9 @@ package br.edu.senai.sc.locadora.controller;
 
 import br.edu.senai.sc.locadora.entity.Carro;
 import br.edu.senai.sc.locadora.service.GerenciamentoService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +35,11 @@ public class GerenciamentoController {
     }
 
     @PostMapping
+    @ApiResponses(value = {
+            @ApiResponse(code = 545, message = "Erro de Teste"),
+            @ApiResponse(code = 207, message = "Sucesso demais")
+    })
+    @ApiOperation(value = "Cadastrar Novo Carro")
     public ResponseEntity<String> cadastrarCarro(@RequestBody Carro carro){
         try {
             gerenciamentoService.salvarCarro(carro);

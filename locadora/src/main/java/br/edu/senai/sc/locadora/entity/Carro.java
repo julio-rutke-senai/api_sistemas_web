@@ -1,5 +1,6 @@
 package br.edu.senai.sc.locadora.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,8 @@ public class Carro {
     private Double preco;
     private String categoria;
 
-    @OneToMany(mappedBy = "carro")
+    @JsonIgnore
+    @OneToMany(mappedBy = "carro", orphanRemoval = true)
     private List<Emprestimo> emprestimos;
 
 }

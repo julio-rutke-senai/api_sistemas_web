@@ -27,4 +27,8 @@ public class Emprestimo {
     @JoinColumn(name = "carro")
     private Carro carro;
 
+    private String telefone;
+
+    private String email;
+
 }
